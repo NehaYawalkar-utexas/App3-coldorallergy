@@ -7,8 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
- 
+Neha Yawalar 
 Further Information:
 http://cns.utexas.edu/fri
  
@@ -38,17 +37,29 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
         var allergy_count = 0;
         var cold_count = 0;
+	
+	var resultText = document.getElementById("results"); // this will call into question the paragraph titled "results", located on page 5
+	var allergyPercent = (allergy_count/4)*100; // this calculates the allergy percentage
+	var coldPercent = (cold_count/4)*100; // this calculates the cold percentage
+
 
 
         function allergyAdd(){
             allergy_count = allergy_count + 1;
-		alert(allergy_count);
+		//alert(allergy_count); commenting this out because I don't know what the purpose is
 
         }
 
         function coldAdd(){
             cold_count = cold_count + 1;
         }
+	
+	function results(){
+		
+		resultText.innerHTML = "Percentage of allergies: " + allergyPercent +
+		<br> "Percentage of cold: " + coldPercent;
+		// this function edits the variable resultText, which refers to the paragraph titled "results" located on page 5
+	
 
   </script>
 
@@ -90,25 +101,67 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<div class="page" id="one">
+<div class="page" id="one"> <!-- this is the code for page one-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Put Question 1 content here.</p>    
+        <p>Are your eyes watery or itchy?</p>    
+		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page two.-->
+		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a> 
+		<a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No </a> 
     	</div>
 </div>
 
-<div class="page" id="two">
+<div class="page" id="two"> <!-- this is the code for page two-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Content of page 2 goes here.</p>
+	<p>Do you have a fever?</p>    
+		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page three.-->
+		<a href="#three" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>	
+	
+<div class="page" id="three"> <!-- this is the code for page three-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<p>Do you have a sore throat?</p>    
+		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page four.-->
+		<a href="#four" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> No </a>
+	</div>
+</div>	
+	
+<div class="page" id="four"> <!-- this is the code for page four-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+	<p>Are your symptoms seasonal or chronic?</p>  
+		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page five.-->
+		<a onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+		<a onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No </a>
+		
+		<a href="#five" onclick="results();" class="w3-btn w3-grey w3-round"> Results </a>
+		
+		
+
+	</div>
+</div>	
+	
+<div class="pages" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
+	<p id="results"> </p>
+	
+</div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
