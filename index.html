@@ -152,16 +152,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>	
 	
-<div class="pages" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
+<div class="page" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Show Results</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<a onclick="resultsPercentages();" class="w3-btn w3-grey w3-round"> Results </a>
-	<p id="results"> </p>
+	<p>Do you want to show your results?</p>    
+		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page four.-->
+		<a href="#five" onclick="resultsPercentages();" class="w3-btn w3-grey w3-round"> Show Results </a>
+		
+	</div>
+</div>		
 	
-</div>
+
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
