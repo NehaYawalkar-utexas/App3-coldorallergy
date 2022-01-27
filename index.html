@@ -37,24 +37,40 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
         var allergy_count = 0;
         var cold_count = 0;
+	//these are counters: they record how many questions were answered as "yes" for allergy or cold respectively
 	
 
         function allergyAdd(){
             allergy_count = allergy_count + 1;
-		//alert(allergy_count); commenting this out because I don't know what the purpose is
-
+		//alert(allergy_count); commenting this part out because I don't know what the purpose is
+		//this function adds a tally to allergy_count every time the user answers a question that indicates allergy symptoms
         }
-
         function coldAdd(){
             cold_count = cold_count + 1;
-        }
-	
+		//this function adds a tally to cold_count every time the user answers a question that indicates cold symptoms
+	}	
 	function resultsPercentages(){
-		var resultText = document.getElementById("results"); // this will call into question the paragraph titled "results", located on page 5
+		var resultText = document.getElementById("results"); // this will call into action the paragraph titled "results", located on page 5
 		var allergyPercent = (allergy_count/4)*100; // this calculates the allergy percentage
 		var coldPercent = (cold_count/4)*100; // this calculates the cold percentage
 		resultText.innerHTML = "Percentage of allergies =" + allergyPercent + "%" + "<br> Percentage of cold =" + coldPercent + "%";
-		// this function edits the variable resultText, which refers to the paragraph titled "results" located on page 5
+		// this function edits the variable resultText, which refers to the paragraph titled "results" located on page 5. 
+		// the page updates to reflect the results aka relative percentages of each diagnosis type
+		/**
+		in-depth explanation of this function:
+		
+		originally, there is a paragraph on the results page called "results" that is completely empty.
+		it is empty because we don't have any results at first.
+		as the user answers the questions, the data gets collected in the two counter variables for allergy and cold.
+		by the time the user reaches the results page, all the data has been collected. now results can be calculated.
+		clicking the button "show results" on the results page will call a function called resultsPercentages(). 
+		This function takes the collected data from the counters and calculates the results. 
+		In this program, it calculates what percentage of answers refers to each diagnosis.
+		once these results have been calculated, the function prints the results into the previously empty paragraph.
+		the way it does this is by directly editing the content of the paragraph. 
+		as a result, once the button "Show Results" has been pressed, the user will be able to see their percentages appear under the button.
+		
+		**/
 	}
 
   </script>
@@ -85,19 +101,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Cold or Allergies?</h1> <!-- this is the title (the name that expresses on the brower tab) -->
 </div>
 	
-<div id="content" class="w3-container">
+<div id="content" class="w3-container"> <!-- this section introduces the purpose of the app-->
 	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
 	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!-- this is a button that introduces the first question by directing to page one-->
 	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<div class="page" id="one"> <!-- this is the code for page one-->
+<div class="page" id="one"> <!-- this is the code for page one, including question 1-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
@@ -110,7 +126,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	</div>
 </div>
 
-<div class="page" id="two"> <!-- this is the code for page two-->
+<div class="page" id="two"> <!-- this is the code for page two, including question 2-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
@@ -123,7 +139,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>	
 	
-<div class="page" id="three"> <!-- this is the code for page three-->
+<div class="page" id="three"> <!-- this is the code for page three, including question 3-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
@@ -136,7 +152,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>	
 	
-<div class="page" id="four"> <!-- this is the code for page four-->
+<div class="page" id="four"> <!-- this is the code for page four, including question 4-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
@@ -152,14 +168,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>	
 	
-<div class="page" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
+<div class="page" id="five"> <!-- this is the code for page five. it will be edited to display the quiz result percentages once "results" button is pressed-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Show Results</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
 	<p>Show your results now</p>
-	<!-- below is a button that says "Show Results", that calls the function to calculate the percentages.-->
+	<!-- below is a button that says "Show Results", that calls the function resultsPercentages() to calculate the percentages of each response and display on the screen.-->
 	<a onclick="resultsPercentages();" class="w3-btn w3-grey w3-round">Show Results</a>
 	<p id="results"></p>    
 		
