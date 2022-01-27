@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Neha Yawalar 
+Neha Yawalkar 
 Further Information:
 http://cns.utexas.edu/fri
  
@@ -16,10 +16,15 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+This program asks a series of diagnosis questions to asses a person experiencing allergy and cold symptoms. 
+By compiling yes or no responses, the code will determine how likely each of the diagnoses are in terms of percentages. 
+
+
+
 Known Issues:
-blah, blah, blah, blah
+Results button was appearing on front page, not results page (resolved)
+Results would not appear upon click of "Show Results" button (resolved)
+"Show Results" button was overlapping with header section (resolved)
 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
@@ -42,7 +47,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
         function allergyAdd(){
             allergy_count = allergy_count + 1;
-		//alert(allergy_count); commenting this part out because I don't know what the purpose is
+		//alert(allergy_count); commenting this part out because I didn't need it for the code to function
 		//this function adds a tally to allergy_count every time the user answers a question that indicates allergy symptoms
         }
         function coldAdd(){
@@ -100,6 +105,30 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </style>
 
 <body>
+	
+	
+	
+	
+	<!-- in-depth explanation of page layout:
+Each assessment question is stored on its own "page". "Page" is a type of element used to organize this website.
+This website uses "div" tag to separate the content of each "page" into sections.
+All "page" elements belong to the same "class" and thus share certain common attributes, such as style and color scheme.
+The "id" of each "page" is unique, and is used to navigate through the website and access each specific page.
+The title of each page is formatted using the <h1> tag, which makes it look big like a header.
+The <p> tag is used to display normal text in paragraph form. 
+<a> tag is used for links. Within the <a> tag includes several additional instructions. 
+The "href" tag describes where the link should direct the user to. 
+In these examples, href is always directing the user to a different page within the website, as dictated by the "#(page)" that follows it.
+The onclick command is defined using Javascript. onclick causes an action to happen upon clicking the link.
+In these examples, onclick is used to add a tally to its designated counter variable, allergy or cold, which are both defined in the script code.
+In the <a> tag, there is also a class defined as: class="w3-btn w3-grey w3-round". 
+This class makes the links on each page appear like clickable buttons that are grey and round.
+The text located between the front and back <a> tags are the text that the link appears as. These words represent the words on the clickable buttons. 
+This same format is copied for all pages. Only the addresses of the links and the functions of the buttons change based on the purpose of each page. 
+These functions and addresses are specified line by line in the code comments below. 
+ -->
+	
+	
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Cold or Allergies?</h1> <!-- this is the title (the name that expresses on the brower tab) -->
 </div>
@@ -124,6 +153,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a> 
 		<a href="#two" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No </a> 
     	</div>
+	
 </div>
 
 <div class="page" id="two"> <!-- this is the code for page two, including question 2-->
