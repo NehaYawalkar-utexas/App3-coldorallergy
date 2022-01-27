@@ -49,7 +49,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             cold_count = cold_count + 1;
         }
 	
-	function results(){
+	function resultsPercentages(){
 		var resultText = document.getElementById("results"); // this will call into question the paragraph titled "results", located on page 5
 		var allergyPercent = (allergy_count/4)*100; // this calculates the allergy percentage
 		var coldPercent = (cold_count/4)*100; // this calculates the cold percentage
@@ -153,8 +153,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>	
 	
 <div class="pages" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
+	<div class="w3-container w3-flat-carrot">
+		<h1>Show Results</h1>
+	</div>
 	
-	<a onclick="results();" class="w3-btn w3-grey w3-round"> Results </a>
+	<div id="content" class="w3-container">
+	<a onclick="resultsPercentages();" class="w3-btn w3-grey w3-round"> Results </a>
 	<p id="results"> </p>
 	
 </div>
