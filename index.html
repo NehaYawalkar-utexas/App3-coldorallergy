@@ -148,10 +148,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 	<p>Are your symptoms seasonal or chronic?</p>  
 		<!-- below are two buttons that say yes and no, then update the allergy counter or cold counter respectively. Also, directs to page five.-->
-		<a onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
-		<a onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No </a>
-		
-		<a href="#five" onclick="results();" class="w3-btn w3-grey w3-round"> Results </a>
+		<a href="#five" onclick="allergyAdd();" class="w3-btn w3-grey w3-round"> Yes </a>
+		<a href="#five" onclick="coldAdd();" class="w3-btn w3-grey w3-round"> No </a>
 		
 		
 
@@ -159,6 +157,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>	
 	
 <div class="pages" id="five"> <!-- this is the code for page five. it will be edited to display percentages once "results" button is pressed on page four.-->
+	
+	<a onclick="results();" class="w3-btn w3-grey w3-round"> Results </a>
 	<p id="results"> </p>
 	
 </div>
